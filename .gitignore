@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Model cache (large files, auto-download on first run)
+model-cache/
+local-model/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# WorkBuddy workspace
+.workbuddy/
+
+# Output artifacts
+*.log

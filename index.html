@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>汉衣图鉴 | 汉服识图与搭配助手</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 顶部标题栏 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-logo" aria-label="应用Logo展示区域">
+        <span class="logo-placeholder">汉</span>
+      </div>
+      <div class="header-text">
+        <h1 class="site-title">
+          <span class="site-name">汉衣图鉴</span>
+          <span class="title-divider">|</span>
+          <span class="site-subtitle">汉服识图与搭配助手</span>
+        </h1>
+      </div>
+    </div>
+    <div class="header-divider" aria-hidden="true">
+      <span class="divider-ornament">◇</span>
+    </div>
+  </header>
+
+  <div class="page">
+    <main class="main-content">
+
+      <!-- 模块一：汉服识图区 -->
+      <section class="module module-recognition" aria-labelledby="recognition-heading">
+        <div class="module-header">
+          <div class="module-title-row">
+            <span class="title-deco" aria-hidden="true"></span>
+            <h2 id="recognition-heading" class="module-title">汉服识图区</h2>
+            <span class="title-deco" aria-hidden="true"></span>
+          </div>
+          <p class="module-desc">上传汉服图片，识别形制并获取科普与配饰建议</p>
+        </div>
+
+        <div class="recognition-body">
+          <div class="upload-area">
+            <label class="upload-label" for="image-upload">
+              <span class="upload-icon" aria-hidden="true">＋</span>
+              <span class="upload-text">选择图片上传</span>
+              <input type="file" id="image-upload" class="upload-input" accept="image/*">
+            </label>
+            <div class="preview-box" id="preview-box" aria-label="图片预览区">
+              <p class="preview-placeholder" id="preview-placeholder">预览区域</p>
+              <img class="preview-image" id="preview-image" alt="已选汉服图片预览" hidden>
+            </div>
+          </div>
+          <p class="upload-hint" id="upload-hint" role="status">请选择 JPG、PNG、GIF、WebP 等图片文件</p>
+
+          <div class="action-row action-row--upload">
+            <button type="button" class="btn btn-primary" id="btn-recognize">开始识别</button>
+            <button type="button" class="btn btn-outline" id="btn-reset-image" disabled>清空图片</button>
+          </div>
+
+          <div class="result-panel" aria-label="识别结果展示区">
+            <h3 class="result-panel-title">识别结果</h3>
+            <div class="result-grid">
+              <article class="result-card">
+                <h4 class="result-card-title">形制名称</h4>
+                <div class="result-card-body">
+                  <p class="result-placeholder">识别后将在此显示汉服形制名称</p>
+                </div>
+              </article>
+              <article class="result-card">
+                <h4 class="result-card-title">科普内容</h4>
+                <div class="result-card-body">
+                  <p class="result-placeholder">识别后将在此显示形制由来与穿着要点</p>
+                </div>
+              </article>
+              <article class="result-card">
+                <h4 class="result-card-title">配饰建议</h4>
+                <div class="result-card-body">
+                  <p class="result-placeholder">识别后将在此显示发饰、鞋履等搭配建议</p>
+                </div>
+              </article>
+              <article class="result-card result-card--gallery">
+                <h4 class="result-card-title">知识库示例图</h4>
+                <div class="result-card-body" id="recognition-example-gallery">
+                  <p class="result-placeholder">识别后将在此显示知识库中的对应示例图</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 模块二：智能穿搭区 -->
+      <section class="module module-styling" aria-labelledby="styling-heading">
+        <div class="module-header">
+          <div class="module-title-row">
+            <span class="title-deco" aria-hidden="true"></span>
+            <h2 id="styling-heading" class="module-title">智能穿搭区</h2>
+            <span class="title-deco" aria-hidden="true"></span>
+          </div>
+          <p class="module-desc">填写偏好问卷，生成专属汉服搭配方案</p>
+        </div>
+
+        <form class="styling-form" aria-label="穿搭偏好问卷">
+          <fieldset class="question-group">
+            <legend class="question-label">性别</legend>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="gender" value="女">
+                <span class="radio-text">女性</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gender" value="男">
+                <span class="radio-text">男性</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-group">
+            <legend class="question-label">身形特点</legend>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="body-type" value="slim">
+                <span class="radio-text">纤细修长</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="body-type" value="average">
+                <span class="radio-text">匀称适中</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="body-type" value="curvy">
+                <span class="radio-text">丰润饱满</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-group">
+            <legend class="question-label">气质风格</legend>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="temperament" value="elegant">
+                <span class="radio-text">温婉典雅</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="temperament" value="lively">
+                <span class="radio-text">活泼灵动</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="temperament" value="solemn">
+                <span class="radio-text">端庄大气</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="temperament" value="fresh">
+                <span class="radio-text">清新淡雅</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-group">
+            <legend class="question-label">使用场景</legend>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="occasion" value="daily">
+                <span class="radio-text">日常出行</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="occasion" value="festival">
+                <span class="radio-text">节庆聚会</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="occasion" value="photo">
+                <span class="radio-text">拍照写真</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="occasion" value="ceremony">
+                <span class="radio-text">礼仪场合</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-group">
+            <legend class="question-label">色系偏好</legend>
+            <div class="radio-options">
+              <label class="radio-option">
+                <input type="radio" name="color-pref" value="warm">
+                <span class="radio-text">暖色系</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="color-pref" value="cool">
+                <span class="radio-text">冷色系</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="color-pref" value="neutral">
+                <span class="radio-text">中性素雅</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="color-pref" value="vivid">
+                <span class="radio-text">明艳对比</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="action-row">
+            <button type="button" class="btn btn-primary" id="btn-generate-outfit">生成搭配方案</button>
+          </div>
+        </form>
+
+        <div class="outfit-result" aria-label="穿搭结果展示区">
+          <h3 class="result-panel-title">搭配方案</h3>
+          <div class="outfit-result-body" id="outfit-result-body">
+            <p class="result-placeholder">完成问卷并点击生成后，搭配建议将在此展示</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 底部说明 -->
+    <footer class="site-footer">
+      <p>汉衣图鉴 — 以简约国风呈现汉服之美，识形制、学搭配，仅供学习交流参考。</p>
+    </footer>
+  </div>
+  <script src="hanfuDB.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
